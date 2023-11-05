@@ -1,0 +1,13 @@
+#version 330 core
+
+layout(location = 0) in vec3 position;
+uniform mat4 u_mvp;
+
+flat out vec3 startPos;
+out vec3 vertPos;
+
+void main() {
+    gl_Position = u_mvp * vec4(position, 1.0);
+    vertPos = gl_Position.xyz/gl_Position.w;
+    startPos = vertPos;
+};

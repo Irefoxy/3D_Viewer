@@ -1,0 +1,21 @@
+#version 330 core
+
+out vec4 color;
+uniform vec4 u_color;
+uniform int u_solid;
+flat in vec3 startPos;
+in vec3 vertPos;
+
+void main()
+{
+  if (u_solid == 0)
+  {
+  vec2 dir = (vertPos.xy-startPos.xy) * 600;
+  float dist = length(dir);
+  uint bit = uint(round(dist/1)) & 15U;
+  if((0x00F0U & (1U<<bit)) == 0U)
+    discard;
+  }
+  color = u_color;
+}
+
