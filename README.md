@@ -19,3 +19,4 @@ makefile содержит цели\
 `clean`
 
 ## TODO list
+OpenGL - change to dsa
